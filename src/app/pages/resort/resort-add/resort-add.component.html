@@ -1,0 +1,23 @@
+<form
+  [id]="formId"
+  [formGroup]="form"
+  (ngSubmit)="onAddResort(form.value)"
+  novalidate
+>
+  <mat-form-field>
+    <mat-label>Resort Name</mat-label>
+    <input
+      matInput
+      placeholder="Resort Name"
+      formControlName="resortName"
+      required
+    />
+    <mat-error
+      *ngIf="resortName.invalid && (resortName.dirty || resortName.touched)"
+    >
+      <ng-container *ngIf="resortName.hasError('required')"
+        >Resort Name is required.</ng-container
+      >
+    </mat-error>
+  </mat-form-field>
+</form>
