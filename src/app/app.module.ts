@@ -9,6 +9,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { PagesComponent } from './pages/pages.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
+import { AsyncService } from './shared/services/async.service';
+// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxsModule } from '@ngxs/store';
+import { AsyncState } from './shared/state/async.state';
 
 @NgModule({
   declarations: [AppComponent, PagesComponent],
@@ -20,8 +24,10 @@ import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
     SharedModule.forRoot(),
     FlexLayoutModule,
     NgxsStoragePluginModule.forRoot(),
+    // NgbModule,
+    NgxsModule.forRoot([AsyncState]),
   ],
-  providers: [],
+  providers: [AsyncService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

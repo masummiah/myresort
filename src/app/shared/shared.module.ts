@@ -38,6 +38,8 @@ import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { MenuListItemComponent } from './components/menu-list-item/menu-list-item.component';
 import { TopNavComponent } from './components/top-nav/top-nav.component';
 import { NavService } from './services/nav-menu.service';
+import { ConfirmDialogComponent } from './components/confirmation-dialog.component';
+import { CommonService } from './services/common.service';
 
 @NgModule({
   imports: [
@@ -125,14 +127,15 @@ import { NavService } from './services/nav-menu.service';
     NavMenuComponent,
     MenuListItemComponent,
     TopNavComponent,
+    ConfirmDialogComponent,
   ],
-  entryComponents: [],
+  entryComponents: [ConfirmDialogComponent],
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders<SharedModule> {
     return {
       ngModule: SharedModule,
-      providers: [NavService],
+      providers: [NavService, CommonService],
     };
   }
 }
